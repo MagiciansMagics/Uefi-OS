@@ -17,7 +17,7 @@ kmain(boot_info_data_t* params)
 
     init_interrupts();
 
-    kprintf("Welcome to my operating system!\n");
+    kprintf("Welcome to my operating system\n");
 
     init_pmm(&params->mm);
 
