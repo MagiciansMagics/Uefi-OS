@@ -135,14 +135,6 @@ clean:
 	@rm -rf $(BOOT_OBJ_DIR)
 	@rm -rf $(KERNEL_OBJ_DIR)
 
-publish:
-	@git init
-	@git add .
-	@git commit -m "New update"
-	@git branch -M main
-	@git remote add origin https://github.com/MagiciansMagics/Uefi-OS.git
-	@git push -u origin main
-
 run: all
 	$(EMULATOR) \
 	-bios /usr/share/ovmf/OVMF.fd \
