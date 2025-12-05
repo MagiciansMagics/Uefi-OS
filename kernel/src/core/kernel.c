@@ -25,5 +25,7 @@ kmain(boot_info_data_t* params)
 
     init_vmm(params);
 
+    kprintf("Passed paging!\n");
+    
     kpanic();
 }
