@@ -42,6 +42,9 @@ void
 map_page(void* virtualAddress, void* physicalAddress);
 
 void
+map_region(void* virt, void* phys, uint64_t size);
+
+void
 init_vmm(boot_info_data_t* params);
 
 #endif
