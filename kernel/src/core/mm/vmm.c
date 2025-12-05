@@ -113,9 +113,7 @@ init_vmm(boot_info_data_t* params)
         map_region((void*)pmm->regions[i].alloc.base, (void*)pmm->regions[i].alloc.base, pmm->regions[i].alloc.size);
     }
 
-    uint64_t a = pmm_alloc(0x4000);
-    uint64_t b = 0xFFFFFFFF80000000;
-    map_region((void*)b, (void*)a, (uint64_t)0x4000);
+    map_region((void*)params->gop.FrameBufferBase, (void*)params->gop.FrameBufferBase, params->gop.FrameBufferSize);
 
     uint64_t stack_size = 0x8000;
     uint64_t stack_phys = pmm_alloc(stack_size);
@@ -128,8 +126,4 @@ init_vmm(boot_info_data_t* params)
         : "r"(stack_phys + stack_size), "r"(pml4_phys)
         : "memory"
     );
-
-    uint64_t* test_ptr = (uint64_t*)b;
-
-    *test_ptr = 123;
 }
